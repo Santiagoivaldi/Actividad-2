@@ -89,7 +89,7 @@ def lista_visitantes_en_institucion ():
 def busca_vistantes(fecha_desde, fecha_hasta, destino, dni):
     """ busca visitantes segun criterios """
     conn = sqlite3.connect('recepcion.db')
-    q = f"""'SELECT * FROM ingresos_egresos WHERE fecha_in = '{fecha_desde}' and fecha_out = '{fecha_hasta}' and destino = '{destino}' and dni = '{dni}'"""
+    q = f"""'SELECT * FROM ingresos_egresos WHERE fecha_in = '{fecha_desde}' or fecha_out = '{fecha_hasta}' or destino = '{destino}' and dni = '{dni}'"""
     
     x = conn.execute(q)
 
